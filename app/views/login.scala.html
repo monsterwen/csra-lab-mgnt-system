@@ -1,0 +1,39 @@
+@(form: Form[LoginController.Login])
+
+@helper.form(routes.LoginController.authenticate){
+   <h1 style="text-align:center;">Sign in</h1>
+    @if(form.hasGlobalErrors) {
+    <p class="error">
+        @form.globalError.message
+    </p>
+    }
+   <p style="text-align:center;">
+       <input type="email" name="email" placeholder="Email" value="@form("email").value">
+       <font color="red">This field is required</font>
+   </p>
+   <p style="text-align:center;">
+       <input type="password" name="password" placeholder="Password">
+       <font color="red">This field is required</font>
+   </p>
+   <p style="text-align:center;">
+       <button type="submit">Login</button>
+   </p>
+   <p style="text-align:center;">
+       <button type="register">Register</button>
+   </p>
+}
+
+<html>
+    <head>
+        <title>CSRA</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.versioned("stylesheets/login.css")">
+    </head>
+    <body>
+        <header>
+            <a href="@routes.HomeController.index" id="logo"></a>
+            
+        </header>
+
+    </body>
+</html>
